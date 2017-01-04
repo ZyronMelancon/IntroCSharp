@@ -12,7 +12,8 @@ namespace IntroCSharp
         public Entity() { }
         public Entity(int h, int att)
         {
-
+            health = h;
+            attackPower = att;
         }
 
         private string name;
