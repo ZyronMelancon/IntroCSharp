@@ -7,7 +7,7 @@ using System.IO;
 
 namespace IntroCSharp
 {
-    class Entity
+    public class Entity
     {
         public Entity() { }
         public Entity(int h, int att)
@@ -27,6 +27,8 @@ namespace IntroCSharp
         {
             if (a.Health > 0)
             {
+                Random rnd = new Random();
+                a.health -= 5 + rnd.Next(0, 5);
                 return true;
             }
             else
@@ -35,8 +37,31 @@ namespace IntroCSharp
             }
         }
 
-        public virtual bool Defend() { return false; }
 
+
+    }
+
+    public class Zombie : Entity
+    {
+        public Zombie() { }
+        public Zombie(int h, int s) : base(h,s) { }
+
+        public override bool Attack(Entity a)
+        {
+            return base.Attack(a);
+        }
+
+    }
+
+    public class Player : Entity
+    {
+        public Player() { }
+        public Player(int h, int s) : base(h,s) { }
+        public override bool Attack(Entity a)
+        {
+            return base.Attack(a);           
+        }
+        public virtual bool Defend() { return false; }
     }
 
 
